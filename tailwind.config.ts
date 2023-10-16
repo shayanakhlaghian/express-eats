@@ -13,6 +13,9 @@ const config: Config = {
         'primary-dark': '#0CBC3B',
         'primary-light': '#87F7A5',
       },
+      gridTemplateColumns: {
+        restaurants: 'repeat(auto-fit, minmax(7.5rem, 15rem))',
+      },
     },
   },
   plugins: [],
