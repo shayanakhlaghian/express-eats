@@ -20,17 +20,17 @@ const navItems: { id: string; text: string; href: string }[] = [
   {
     id: 'ni-1',
     text: 'Are you a business owner?',
-    href: '#',
+    href: '/register/businesses',
   },
   {
     id: 'ni-2',
     text: 'Are you a restaurant owner?',
-    href: '#',
+    href: '/register/restaurants',
   },
   {
     id: 'ni-3',
     text: 'Sign up to deliver',
-    href: '#',
+    href: '/register/deliverers',
   },
 ];
 
