@@ -42,7 +42,7 @@ const footerItems: { id: string; href: string; name: string }[] = [
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-700 text-gray-100'>
+    <footer className='bg-gray-700 text-gray-100 w-screen'>
       <Container>
         <div className='text-center pb-5'>
           <TertiaryHeading>
