@@ -1,4 +1,4 @@
-import PrimaryHeading from '@/components/PrimaryHeading';
+import TertiaryHeading from './TertiaryHeading';
 import Container from './Container';
 import FooterItem from './FooterItem';
 
@@ -45,9 +45,9 @@ const Footer = () => {
     <footer className='bg-gray-700 text-gray-100'>
       <Container>
         <div className='text-center pb-5'>
-          <h2 className='text-2xl md:text-3xl bg-gradient-to-r from-primary-light to-primary-dark bg-clip-text text-transparent'>
+          <TertiaryHeading>
             express eats <span className='text-base'>&#8482;</span>
-          </h2>
+          </TertiaryHeading>
         </div>
         <ul className='grid grid-cols-2 place-items-center items-center gap-2 w-5/6 md:w-1/2 lg:w-1/3 mx-auto'>
           {footerItems.map(({ id, name, href }) => (
