@@ -1,6 +1,6 @@
 'use client';
 import type { SubmitHandler } from 'react-hook-form';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import TertiaryHeading from '@/components/TertiaryHeading';
@@ -20,47 +20,57 @@ const Label = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const Form = () => {
+const Form = ({
+  onLogin,
+  onSignup,
+}: {
+  onLogin: (username: string, password: string) => void;
+  onSignup: (username: string, password: string) => void;
+}) => {
   const [isLogin, setIsLogin] = useState(true);
   const { register, handleSubmit, formState } = useForm<Inputs>();
 
   const handleLoginSwitch = () => setIsLogin((isLogin) => !isLogin);
 
   const onSubmit: SubmitHandler<Inputs> = ({ username, password }) => {
-    console.log(username, password);
+    if (isLogin) return onLogin(username, password);
+
+    onSignup(username, password);
   };
 
   return (
-    <form
-      className='bg-white w-full md:w-2/3 border border-gray-200 mx-auto p-4 rounded-xl shadow-md [&>*]:mb-6 md:px-5 lg:px-10 text-center'
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <TertiaryHeading>{isLogin ? 'Login' : 'Sign up'}</TertiaryHeading>
-      <div className='relative'>
-        <input
-          {...register('username', { required: true })}
-          type='text'
-          placeholder='John Doe'
-          className='w-full bg-gray-100 rounded-sm py-2 px-4 peer duration-200 outline-none focus:shadow-md'
-        />
-        <Label>Username</Label>
-      </div>
-      <div className='relative'>
-        <input
-          {...register('password', { required: true })}
-          type='password'
-          placeholder='*****'
-          className='w-full bg-gray-100 rounded-sm py-2 px-4 peer duration-200 outline-none focus:shadow-md'
-        />
-        <Label>Password</Label>
-      </div>
-      <SecondaryButton disabled={!formState.isValid}>
-        {isLogin ? 'Get into your account' : 'Create an account'}
-      </SecondaryButton>
-      <TertiaryButton onClick={handleLoginSwitch}>
-        {isLogin ? "don't have an account?" : 'already have an account?'}
-      </TertiaryButton>
-    </form>
+    <>
+      <form
+        className='bg-white w-full md:w-2/3 border border-gray-200 mx-auto p-4 rounded-xl shadow-md [&>*]:mb-6 md:px-5 lg:px-10 text-center'
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <TertiaryHeading>{isLogin ? 'Login' : 'Sign up'}</TertiaryHeading>
+        <div className='relative'>
+          <input
+            {...register('username', { required: true })}
+            type='text'
+            placeholder='John Doe'
+            className='w-full bg-gray-100 rounded-sm py-2 px-4 peer duration-200 outline-none focus:shadow-md'
+          />
+          <Label>Username</Label>
+        </div>
+        <div className='relative'>
+          <input
+            {...register('password', { required: true })}
+            type='password'
+            placeholder='*****'
+            className='w-full bg-gray-100 rounded-sm py-2 px-4 peer duration-200 outline-none focus:shadow-md'
+          />
+          <Label>Password</Label>
+        </div>
+        <SecondaryButton disabled={!formState.isValid} type='submit'>
+          {isLogin ? 'Get into your account' : 'Create an account'}
+        </SecondaryButton>
+        <TertiaryButton onClick={handleLoginSwitch}>
+          {isLogin ? "don't have an account?" : 'already have an account?'}
+        </TertiaryButton>
+      </form>
+    </>
   );
 };
 export default Form;
