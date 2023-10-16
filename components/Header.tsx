@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -12,6 +13,11 @@ import PrimaryButton from './PrimaryButton';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsNavOpen(false);
+  }, [pathname]);
 
   if (typeof window !== 'undefined') {
     window.addEventListener('scroll', () => {
