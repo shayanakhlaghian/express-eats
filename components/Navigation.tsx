@@ -16,6 +16,24 @@ const variants: Variants = {
 
 const transition: Transition = { duration: 0.5 };
 
+const navItems: { id: string; text: string; href: string }[] = [
+  {
+    id: 'ni-1',
+    text: 'Are you a business owner?',
+    href: '#',
+  },
+  {
+    id: 'ni-2',
+    text: 'Are you a restaurant owner?',
+    href: '#',
+  },
+  {
+    id: 'ni-3',
+    text: 'Sign up to deliver',
+    href: '#',
+  },
+];
+
 const Navigation = () => {
   return (
     <motion.nav
@@ -28,13 +46,11 @@ const Navigation = () => {
     >
       <div className='pl-8 py-20 md:py-24 flex flex-col justify-between w-full h-full'>
         <ul className='w-fit [&>*]:mb-2 last:mb-0'>
-          <NavigationItem href='/businesses/panel'>
-            Are you a business owner?
-          </NavigationItem>
-          <NavigationItem href='/restaurants/panel'>
-            Are you a restaurant owner?
-          </NavigationItem>
-          <NavigationItem href='/delivery'>Sign up to deliver</NavigationItem>
+          {navItems.map(({ id, text, href }) => (
+            <NavigationItem key={id} href={href}>
+              {text}
+            </NavigationItem>
+          ))}
         </ul>
         <Link href='/register'>
           <PrimaryButton>Register</PrimaryButton>
