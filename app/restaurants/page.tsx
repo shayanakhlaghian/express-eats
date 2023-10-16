@@ -1,4 +1,10 @@
+import Hero from './components/Hero';
+
 const Restaurants = () => {
-  return <div>Restaurants</div>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 };
 export default Restaurants;
