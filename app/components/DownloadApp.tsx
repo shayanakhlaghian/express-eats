@@ -26,7 +26,7 @@ const Badge = ({
 const DownloadApp = () => {
   return (
     <Container>
-      <div className='w-full h-80 relative rounded-xl overflow-hidden border-2 border-gray-200'>
+      <div className='w-full h-80 relative rounded-xl overflow-hidden'>
         <div className='w-full h-full bg-gradient-to-b md:bg-gradient-to-r from-gray-900 to-transparent relative z-[4]' />
         <Image src='/ad-1.jpg' alt='Ad Image' fill className='object-cover' />
         <div className='z-10 absolute top-10 left-5'>
