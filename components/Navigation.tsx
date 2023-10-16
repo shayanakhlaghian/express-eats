@@ -1,8 +1,9 @@
 import type { Variants, Transition } from 'framer-motion';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-import RegisterButtons from './RegisterButtons';
 import NavigationItem from './NavigationItem';
+import PrimaryButton from './PrimaryButton';
 
 const variants: Variants = {
   close: {
@@ -35,7 +36,9 @@ const Navigation = () => {
           </NavigationItem>
           <NavigationItem href='/delivery'>Sign up to deliver</NavigationItem>
         </ul>
-        <RegisterButtons />
+        <Link href='/register'>
+          <PrimaryButton>Register</PrimaryButton>
+        </Link>
       </div>
     </motion.nav>
   );

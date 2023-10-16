@@ -7,7 +7,7 @@ import Toggle from './Toggle';
 import PrimaryHeading from './PrimaryHeading';
 import Navigation from './Navigation';
 import Backdrop from './Backdrop';
-import RegisterButtons from './RegisterButtons';
+import PrimaryButton from './PrimaryButton';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -39,7 +39,9 @@ const Header = () => {
       </AnimatePresence>
       <AnimatePresence>{isNavOpen && <Navigation />}</AnimatePresence>
       <div className='hidden md:inline-block'>
-        <RegisterButtons />
+        <Link href='/register'>
+          <PrimaryButton>Register</PrimaryButton>
+        </Link>
       </div>
     </header>
   );
