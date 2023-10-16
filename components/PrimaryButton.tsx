@@ -5,7 +5,7 @@ const PrimaryButton = ({
 }: {
   children: React.ReactNode;
   onClick?: () => void;
-  type: 'button' | 'submit';
+  type?: 'button' | 'submit';
 }) => {
   return (
     <button
