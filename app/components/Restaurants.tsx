@@ -3,12 +3,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import type { Settings } from 'react-slick';
 import Slider from 'react-slick';
+import Link from 'next/link';
 
 import { RESTAURANTS } from '@/data/dummy-data';
 import PrimaryHeading from '@/components/PrimaryHeading';
 import Container from '@/components/Container';
 import RestaurantCard from './RestaurantCard';
-import PrimaryLink from '@/components/PrimaryLink';
+import TertiaryButton from '@/components/TertiaryButton';
 
 const settings: Settings = {
   dots: true,
@@ -58,7 +59,9 @@ const Restaurants = () => {
         ))}
       </Slider>
       <div className='mt-10 flex justify-center items-center md:justify-start'>
-        <PrimaryLink href='/restaurants'>Discover more</PrimaryLink>
+        <Link href='/restaurants'>
+          <TertiaryButton>Discover more</TertiaryButton>
+        </Link>
       </div>
     </Container>
   );
