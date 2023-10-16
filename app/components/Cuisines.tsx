@@ -1,5 +1,5 @@
 import { CUISINES } from '@/data/dummy-data';
-import Container from './Container';
+import Container from '@/components/Container';
 import PrimaryHeading from '@/components/PrimaryHeading';
 import CuisineCard from './CuisineCard';
 

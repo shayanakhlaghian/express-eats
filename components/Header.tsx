@@ -4,9 +4,9 @@ import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 import Toggle from './Toggle';
-import PrimaryHeading from '@/components/PrimaryHeading';
+import PrimaryHeading from './PrimaryHeading';
 import Navigation from './Navigation';
-import Backdrop from '@/components/Backdrop';
+import Backdrop from './Backdrop';
 import RegisterButtons from './RegisterButtons';
 
 const Header = () => {

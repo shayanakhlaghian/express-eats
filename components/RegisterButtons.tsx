@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import PrimaryButton from '@/components/PrimaryButton';
-import SecondaryButton from '@/components/SecondaryButton';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 const RegisterButtons = () => {
   return (

@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 
 import { RESTAURANTS } from '@/data/dummy-data';
 import PrimaryHeading from '@/components/PrimaryHeading';
-import Container from './Container';
+import Container from '@/components/Container';
 import RestaurantCard from './RestaurantCard';
 import PrimaryLink from '@/components/PrimaryLink';
 
