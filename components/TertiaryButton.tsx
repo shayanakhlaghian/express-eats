@@ -1,12 +1,15 @@
 const TertiaryButton = ({
   children,
   onClick,
+  type = 'button',
 }: {
   children: React.ReactNode;
   onClick?: () => void;
+  type?: 'button' | 'submit';
 }) => {
   return (
     <button
+      type={type}
       className='text-primary font-bold capitalize text-sm md:text-base tracking-wide border-b-2 pb-1 border-primary group'
       onClick={onClick}
     >
