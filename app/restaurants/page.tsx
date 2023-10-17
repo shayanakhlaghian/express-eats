@@ -11,6 +11,7 @@ const Restaurants = () => {
         {RESTAURANTS.map(({ id, image, name, cuisine, rating, reviews }) => (
           <Card
             key={id}
+            id={id}
             image={image}
             name={name}
             cuisine={cuisine}
