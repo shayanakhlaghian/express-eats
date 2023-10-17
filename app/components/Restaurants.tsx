@@ -50,6 +50,7 @@ const Restaurants = () => {
         {RESTAURANTS.map(({ id, image, name, cuisine, reviews, rating }) => (
           <RestaurantCard
             key={id}
+            id={id}
             image={image}
             name={name}
             cuisine={cuisine}
