@@ -1,4 +1,5 @@
 import BookingSelect from './BookingSelect';
+import BookingCardButton from './BookingCardButton';
 
 const people: { id: string; text: string }[] = [
   {
@@ -27,9 +28,7 @@ const BookingCard = () => {
         ))}
       </BookingSelect>
       <BookingSelect name='Date' dateSelect={true} />
-      <button className='bg-primary text-slate-50 rounded-md hover:bg-primary-dark duration-100 py-2 mt-4 text-lg font-bold w-full'>
-        Reserve
-      </button>
+      <BookingCardButton>Reserve</BookingCardButton>
     </div>
   );
 };
