@@ -1,7 +1,7 @@
 const ReviewCard = () => {
   return (
     <div className='w-full p-4 border border-slate-100 shadow-sm rounded-sm grid-cols-[3rem_1fr] grid-rows-2 grid gap-y-2 gap-x-2'>
-      <div className='row-start-1 row-end-2 col-start-1 col-end-2 h-10 w-10 bg-primary rounded-full flex justify-center items-center'>
+      <div className='row-start-1 row-end-2 col-start-1 col-end-2 w-9 h-9 md:w-12 md:h-12 bg-primary rounded-full flex justify-center items-center'>
         <p className='font-bold text-xs'>JR</p>
       </div>
       <p className='row-start-2 row-span-full col-start-1 col-end-2 font-bold text-xs md:text-sm'>
