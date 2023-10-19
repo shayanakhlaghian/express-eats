@@ -4,8 +4,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import type { Settings } from 'react-slick';
 import Slider from 'react-slick';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
 
+import delay from '@/lib/delay';
 import { RESTAURANTS } from '@/data/dummy-data';
+import RestaurantLoadingCard from './RestaurantLoadingCard';
 import PrimaryHeading from '@/components/PrimaryHeading';
 import Container from '@/components/Container';
 import RestaurantCard from './RestaurantCard';
@@ -44,21 +47,35 @@ const settings: Settings = {
 };
 
 const Restaurants = () => {
+  const restaurantsQuery = useQuery({
+    queryKey: ['restaurants'],
+    queryFn: () => delay(5000, () => RESTAURANTS),
+  });
+
   return (
     <Container>
       <PrimaryHeading>Restaurants</PrimaryHeading>
+      {restaurantsQuery.isLoading && (
+        <div className='flex justify-between'>
+          {Array.from(Array(4).keys()).map((_, i) => (
+            <RestaurantLoadingCard key={i} />
+          ))}
+        </div>
+      )}
       <Slider {...settings}>
-        {RESTAURANTS.map(({ id, image, name, cuisine, reviews, rating }) => (
-          <RestaurantCard
-            key={id}
-            id={id}
-            image={image}
-            name={name}
-            cuisine={cuisine}
-            reviews={reviews}
-            rating={rating}
-          />
-        ))}
+        {restaurantsQuery.data?.map(
+          ({ id, image, name, cuisine, reviews, rating }) => (
+            <RestaurantCard
+              key={id}
+              id={id}
+              image={image}
+              name={name}
+              cuisine={cuisine}
+              reviews={reviews}
+              rating={rating}
+            />
+          )
+        )}
       </Slider>
       <div className='mt-10 flex justify-center items-center md:justify-start'>
         <Link href='/restaurants'>
