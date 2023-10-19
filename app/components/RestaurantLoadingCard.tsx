@@ -2,7 +2,7 @@ import { ShimmerThumbnail } from 'react-shimmer-effects';
 
 const RestaurantLoadingCard = () => {
   return (
-    <div className='h-72 overflow-hidden rounded-xl border-2 border-gray-100 grid gap-y-1 grid-rows-[3fr_1fr_1fr] group cursor-pointer w-52'>
+    <div className='h-72 overflow-hidden rounded-xl border-2 border-gray-100 grid gap-y-1 grid-rows-[3fr_1fr_1fr] group cursor-pointer'>
       <div className='relative w-full h-full grayscale group-hover:grayscale-0 duration-200'>
         <ShimmerThumbnail height={100} />
       </div>

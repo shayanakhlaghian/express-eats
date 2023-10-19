@@ -55,14 +55,12 @@ const Restaurants = () => {
   return (
     <Container>
       <PrimaryHeading>Restaurants</PrimaryHeading>
-      {restaurantsQuery.isLoading && (
-        <div className='flex justify-between'>
-          {Array.from(Array(4).keys()).map((_, i) => (
+
+      <Slider {...settings}>
+        {restaurantsQuery.isLoading &&
+          Array.from(Array(4).keys()).map((_, i) => (
             <RestaurantLoadingCard key={i} />
           ))}
-        </div>
-      )}
-      <Slider {...settings}>
         {restaurantsQuery.data?.map(
           ({ id, image, name, cuisine, reviews, rating }) => (
             <RestaurantCard
